@@ -24,14 +24,14 @@ class HtmlToPdf
      * @param string $type
      * @return bool|string
      */
-    public static function asynCreatePdf($url, $notify_url, $type = 'BASE64')
+    public static function asynCreatePdf($url, $notify_url, $type = 'base64')
     {
         $url = urlencode($url);
         $data = [
             "url" => $url,
             "notify_url" => $notify_url,
             "sign" => self::$sign,
-            "type" => $type,
+            "creat_type" => $type,
         ];
 
         return self::curlRequest('http://html2pdf.wszx.cc/?app=index@asyn',false,'post',$data);
@@ -45,14 +45,14 @@ class HtmlToPdf
      * @param string $type
      * @return bool|string
      */
-    public static function syncCreatePdf($url, $file_id, $type = 'BASE64')
+    public static function syncCreatePdf($url, $file_id, $type = 'base64')
     {
         $url = urlencode($url);
         $data = [
             "url" => $url,
             "file_id" => $file_id,
             "sign" => self::$sign,
-            "type" => $type,
+            "creat_type" => $type,
         ];
 
         return self::curlRequest('http://html2pdf.wszx.cc/?app=index@sync',false,'post',$data);
