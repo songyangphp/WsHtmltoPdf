@@ -7,7 +7,6 @@
       "email": "475511896@qq.com"
     }
   ],
-
   "license": "MIT",
   "require": {
     "php": ">=7.0"
