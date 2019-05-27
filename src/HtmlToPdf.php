@@ -26,10 +26,9 @@ class HtmlToPdf
      */
     public static function asynCreatePdf($url, $notify_url, $type = 'base64')
     {
-        $url = urlencode($url);
         $data = [
-            "url" => $url,
-            "notify_url" => $notify_url,
+            "url" => urlencode($url),
+            "notify_url" => urlencode($notify_url),
             "sign" => self::$sign,
             "creat_type" => $type,
         ];
@@ -47,9 +46,8 @@ class HtmlToPdf
      */
     public static function syncCreatePdf($url, $file_id, $type = 'base64')
     {
-        $url = urlencode($url);
         $data = [
-            "url" => $url,
+            "url" => urlencode($url),
             "file_id" => $file_id,
             "sign" => self::$sign,
             "creat_type" => $type,
