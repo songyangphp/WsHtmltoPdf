@@ -5,7 +5,7 @@
  * Date: 2019-05-27
  * Time: 9:09
  */
-namespace pdf;
+namespace wslibs\pdf;
 
 class HtmlToPdf
 {
