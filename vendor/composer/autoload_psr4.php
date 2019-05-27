@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'pdf\\' => array($baseDir . '/src'),
+    'wslibs\\pdf\\' => array($baseDir . '/src'),
 );
