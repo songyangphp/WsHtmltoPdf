@@ -1,0 +1,19 @@
+{
+  "name": "pdf/htmltopdf",
+  "description": "网页生成pdf",
+  "authors": [
+    {
+      "name": "SongYang",
+      "email": "475511896@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "pdf\\": "src/"
+    }
+  }
+}
