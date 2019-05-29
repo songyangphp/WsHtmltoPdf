@@ -9,11 +9,25 @@ namespace wslibs\pdf;
 
 class HtmlToPdf
 {
+
     protected static $sign;
+    protected static $request_url = "http://html2pdf.wszx.cc/";
+
+    public static function setRequestUrl($request_url)
+    {
+        self::$request_url = $request_url;
+    }
 
     public static function setSign($sign)
     {
         self::$sign = $sign;
+    }
+
+    protected static function issetSign()
+    {
+        if(empty(self::$sign)){
+            exit("请设置项目唯一标识[sign]");
+        }
     }
 
 
@@ -26,6 +40,8 @@ class HtmlToPdf
      */
     public static function asynCreatePdf($url, $notify_url, $type = 'base64')
     {
+        self::issetSign();
+
         $data = [
             "url" => urlencode($url),
             "notify_url" => urlencode($notify_url),
@@ -33,27 +49,26 @@ class HtmlToPdf
             "creat_type" => $type,
         ];
 
-        return self::curlRequest('http://html2pdf.wszx.cc/?app=index@asyn',false,'post',$data);
+        return self::curlRequest(self::$request_url.'?app=index@asyn',false,'post',$data);
     }
 
 
     /**
      * 同步生成pdf
      * @param $url
-     * @param $file_id
      * @param string $type
      * @return bool|string
      */
-    public static function syncCreatePdf($url, $file_id, $type = 'base64')
+    public static function syncCreatePdf($url, $type = 'base64')
     {
+        self::issetSign();
         $data = [
             "url" => urlencode($url),
-            "file_id" => $file_id,
             "sign" => self::$sign,
             "creat_type" => $type,
         ];
 
-        return self::curlRequest('http://html2pdf.wszx.cc/?app=index@sync',false,'post',$data);
+        return self::curlRequest(self::$request_url.'?app=index@sync',false,'post',$data);
     }
 
 
