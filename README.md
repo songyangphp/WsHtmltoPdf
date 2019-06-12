@@ -14,7 +14,6 @@ HtmlToPdf::setSign('您的项目唯一码');
 
 /**
 * url 必须 要生成pdf的html链接地址
-* file_id 必须 pdf文件唯一标识
 * type 可选[base64,url] 返回格式 默认为base64格式
 */
 
